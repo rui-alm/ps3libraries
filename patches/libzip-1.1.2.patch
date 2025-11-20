@@ -1,0 +1,30 @@
+diff -rBNu -x build -x build-ppu libzip-1.1.2/regress/malloc.c ../ps3libraries/build/libzip-1.1.2/regress/malloc.c
+--- libzip-1.1.2/regress/malloc.c	2016-02-07 13:14:36.000000000 +0000
++++ ../ps3libraries/build/libzip-1.1.2/regress/malloc.c	2025-09-28 22:18:51.486451011 +0100
+@@ -35,9 +35,6 @@
+ #include <stdlib.h>
+ /* #include <string.h> */
+ #include <errno.h>
+-#define __USE_GNU
+-#include <dlfcn.h>
+-#undef __USE_GNU
+ 
+ #include "config.h"
+ 
+@@ -84,13 +81,13 @@
+ 	max_count = strtoul(foo, NULL, 0);
+     if ((foo=getenv("MALLOC_MIN_SIZE")) != NULL)
+ 	min_size = strtoul(foo, NULL, 0);
+-    real_calloc = dlsym(RTLD_NEXT, "calloc");
++    real_calloc = calloc;
+     if (!real_calloc)
+ 	abort();
+-    real_malloc = dlsym(RTLD_NEXT, "malloc");
++    real_malloc = malloc;
+     if (!real_malloc)
+ 	abort();
+-    real_realloc = dlsym(RTLD_NEXT, "realloc");
++    real_realloc = realloc;
+     if (!real_realloc)
+ 	abort();
+     inited = 1;

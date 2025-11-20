@@ -1,0 +1,26 @@
+diff --git a/scripts/003_SDL_mixer-1.2.11.sh b/scripts/003_SDL_mixer-1.2.11.sh
+index 882dee3..93a68c2 100755
+--- a/scripts/003_SDL_mixer-1.2.11.sh
++++ b/scripts/003_SDL_mixer-1.2.11.sh
+@@ -10,7 +10,7 @@ cat ../patches/SDL_mixer-1.2.11.patch | patch -p1 || { exit 1; }
+ 
+ LIBMIKMOD_CONFIG="$PS3DEV/portlibs/ppu/bin/libmikmod-config"
+ export LIBMIKMOD_CONFIG
+-./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \
++CFLAGS="-Wno-incompatible-pointer-types" ./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \
+ 	--disable-sdltest \
+ 	--with-sdl-exec-prefix="$PS3DEV/portlibs/ppu" \
+ 	--disable-shared \
+diff --git a/scripts/004_SDL_net.sh b/scripts/004_SDL_net.sh
+index 0cebbee..a77c66a 100755
+--- a/scripts/004_SDL_net.sh
++++ b/scripts/004_SDL_net.sh
+@@ -10,7 +10,7 @@ cat ../patches/SDL_net-1.2.7.patch | patch -p1 || { exit 1; }
+ 
+ #this is seems like a bug in (the version of) PSL1GHT/ps3toolchain
+ # (that I happen to have installed)
+-CFLAGS="$CFLAGS -I$PSL1GHT/ppu/include"
++CFLAGS="$CFLAGS -I$PSL1GHT/ppu/include -Wno-implicit-function-declaration"
+ export CFLAGS
+ 
+ ./configure --prefix="$PS3DEV/portlibs/ppu" --host=powerpc64-ps3-elf \

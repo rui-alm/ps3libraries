@@ -10,5 +10,7 @@ rm -Rf sdl_psl1ght_libs && mkdir sdl_psl1ght_libs && tar --strip-components=1 --
 ## Create the build directory.
 cd sdl_psl1ght_libs
 
+cat ../../patches/sdl_psl1ght_libs.patch | patch -p1
+
 ## Compile and install.
 ./make_SDL_Libs.sh

@@ -1,5 +1,6 @@
---- cairo-1.10.0/configure.orig	2020-07-14 08:42:30.270250297 +0200
-+++ cairo-1.10.0/configure	2020-07-14 08:43:50.044392514 +0200
+diff -rBNu -x build -x build-ppu cairo-1.10.0/configure ../ps3libraries/build/cairo-1.10.0/configure
+--- cairo-1.10.0/configure	2010-09-06 17:16:46.000000000 +0100
++++ ../ps3libraries/build/cairo-1.10.0/configure	2025-09-22 11:45:04.859866909 +0100
 @@ -17005,7 +17005,7 @@
  MAYBE_WARN="$MAYBE_WARN -erroff=E_ENUM_TYPE_MISMATCH_ARG \
  			-erroff=E_ENUM_TYPE_MISMATCH_OP"
@@ -9,3 +10,22 @@
  
  MAYBE_WARN="$MAYBE_WARN -Wp,-D_FORTIFY_SOURCE=2"
  
+diff -rBNu -x build -x build-ppu cairo-1.10.0/test/pdiff/pdiff.h ../ps3libraries/build/cairo-1.10.0/test/pdiff/pdiff.h
+--- cairo-1.10.0/test/pdiff/pdiff.h	2010-09-02 12:38:55.000000000 +0100
++++ ../ps3libraries/build/cairo-1.10.0/test/pdiff/pdiff.h	2025-09-28 21:54:31.577420443 +0100
+@@ -18,14 +18,7 @@
+ #define _PDIFF_H
+ 
+ #include <cairo.h>
+-
+-typedef int bool;
+-#ifndef true
+-#define true 1
+-#endif
+-#ifndef false
+-#define false 0
+-#endif
++#include <stdbool.h>
+ 
+ /* Image comparison metric using Yee's method (and a cairo interface)
+  * References: A Perceptual Metric for Production Testing, Hector Yee, Journal of Graphics Tools 2004

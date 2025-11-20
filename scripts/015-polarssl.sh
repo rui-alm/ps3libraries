@@ -41,6 +41,7 @@ rm -Rf polarssl-${VERSION} && tar xfvz polarssl-${VERSION}.tgz && cd mbedtls-pol
 echo "Patching net.c and timing.c for compatibility..."
 cat ../../../patches/polarssl-1.2.8-net.patch | patch -p1
 cat ../../../patches/polarssl-1.2.8-timing.patch | patch -p1
+cat ../../../patches/polarssl-1.2.8-x509parse.patch | patch -p1
 
 echo "Building polarssl for ${PLATFORM} ${SDKVERSION} ${ARCH}"
 
