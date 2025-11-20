@@ -1,0 +1,12 @@
+diff -rBNu ./x509parse.c ../../../ps3libraries/build/mbedtls-polarssl-1.2.8/library/x509parse.c
+--- ./x509parse.c	2013-06-21 14:11:10.000000000 +0100
++++ ../../../ps3libraries/build/mbedtls-polarssl-1.2.8/library/x509parse.c	2025-10-04 10:12:05.754030524 +0100
+@@ -81,7 +81,7 @@
+ #if !defined(_WIN32)
+ #include <sys/types.h>
+ #include <sys/stat.h>
+-#include <dirent.h>
++#include <sys/dirent.h>
+ #endif
+ #endif
+ 

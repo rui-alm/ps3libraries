@@ -10,5 +10,7 @@ rm -Rf sdl_psl1ght && mkdir sdl_psl1ght && tar --strip-components=1 --directory=
 ## Create the build directory.
 cd sdl_psl1ght
 
+cat ../../patches/sdl_psl1ght.patch | patch -p1
+
 ## Compile and install.
 ./script.sh && ${MAKE:-make} && ${MAKE:-make} install

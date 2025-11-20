@@ -1,0 +1,25 @@
+diff --git a/src/SDL_fatal.c b/src/SDL_fatal.c
+index 73a43f33..3c00ae19 100644
+--- a/src/SDL_fatal.c
++++ b/src/SDL_fatal.c
+@@ -23,7 +23,7 @@
+ /* General fatal signal handling code for SDL */
+ 
+ #ifdef HAVE_SIGNAL_H
+-
++#include <sys/types.h>
+ #include <signal.h>
+ 
+ #include "SDL.h"
+diff --git a/src/events/SDL_quit.c b/src/events/SDL_quit.c
+index 99411c23..9bb87546 100644
+--- a/src/events/SDL_quit.c
++++ b/src/events/SDL_quit.c
+@@ -23,6 +23,7 @@
+ /* General quit handling code for SDL */
+ 
+ #ifdef HAVE_SIGNAL_H
++#include <sys/types.h>
+ #include <signal.h>
+ #endif
+ 
